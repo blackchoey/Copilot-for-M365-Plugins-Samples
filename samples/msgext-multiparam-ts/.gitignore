@@ -2,6 +2,7 @@
 env
 .localConfigs
 appPackage/build
+build
 
 # dependencies
 node_modules/

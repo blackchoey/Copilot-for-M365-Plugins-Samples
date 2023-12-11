@@ -1,5 +1,6 @@
 // Import required packages
 import * as restify from "restify";
+import path from "path";
 
 // Import required bot services.
 // See https://aka.ms/bot-services to learn more about the different parts of a bot.
@@ -68,3 +69,10 @@ server.post("/api/messages", async (req, res) => {
     await searchApp.run(context);
   });
 });
+
+server.get(
+  "/auth-:name(start|end).html",
+  restify.plugins.serveStatic({
+    directory: path.join(__dirname, "public"),
+  })
+);
